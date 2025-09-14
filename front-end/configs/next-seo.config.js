@@ -1,8 +1,8 @@
 const NextSeoConfig = {
   title: null,
-  titleTemplate: "%s | THE VENETIAN MACAO",
-  defaultTitle: "THE VENETIAN MACAO",
-  description: "THE VENETIAN MACAO - Hệ thống casino trực tuyến",
+  titleTemplate: "%s | GALAXY CASINO MACAU",
+  defaultTitle: "GALAXY CASINO MACAU",
+  description: "GALAXY CASINO MACAU - Hệ thống casino trực tuyến",
   additionalMetaTags: [
     {
       property: "keywords",
@@ -23,11 +23,11 @@ const NextSeoConfig = {
     type: "website",
     locale: "vi_VN",
     url: process.env.NEXTAUTH_URL,
-    siteName: "THE VENETIAN MACAO CASINO",
-    description: "THE VENETIAN MACAO",
+    siteName: "GALAXY CASINO MACAU",
+    description: "GALAXY CASINO MACAU",
     images: [
       {
-        url: "/assets/images-new/logo.png",
+        url: "/assets/images/logo33.png",
         width: 1200,
         height: 628,
       },
@@ -37,8 +37,8 @@ const NextSeoConfig = {
     appId: process.env.FACEBOOK_APPID,
   },
   twitter: {
-    handle: "@VENETIAN",
-    site: "@VENETIAN",
+    handle: "@GALAXY",
+    site: "@GALAXY",
     cardType: "summary_large_image",
   },
 };
