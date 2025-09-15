@@ -14,14 +14,13 @@ class AuthService {
     });
     return result;
   };
-  static signUp = async ({ taiKhoan, matKhau, nhapLaiMatKhau, soDienThoai, maGioiThieu, captcha }) => {
+  static signUp = async ({ taiKhoan, matKhau, nhapLaiMatKhau, soDienThoai, maGioiThieu }) => {
     const result = await api.post(`/v1/nguoidung/sign-up`, {
       taiKhoan,
       matKhau,
       nhapLaiMatKhau,
       soDienThoai,
       maGioiThieu,
-      captcha,
     });
     return result;
   };
