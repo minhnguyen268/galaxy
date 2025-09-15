@@ -83,23 +83,23 @@ const DangKy = () => {
   const onSubmit = async (data) => {
     try {
       setSignupStatus("loading");
-      const { account, password, confirmPassword, phone, maGioiThieu, ageConfirmation } = data;
+      const { account, password, confirmPassword, phone, maGioiThieu } = data;
 
-      if (!ageConfirmation) {
-        toast.error(t("Bạn phải xác nhận đủ 18 tuổi để đăng ký"));
-        return;
-      }
+      // if (!ageConfirmation) {
+      //   toast.error(t("Bạn phải xác nhận đủ 18 tuổi để đăng ký"));
+      //   return;
+      // }
 
-      if (!recaptchaValue) {
-        toast.error(t("Vui lòng xác thực reCAPTCHA"));
-        return;
-      }
+      // if (!recaptchaValue) {
+      //   toast.error(t("Vui lòng xác thực reCAPTCHA"));
+      //   return;
+      // }
 
       const result = await AuthService.signUp({
         taiKhoan: account,
         matKhau: password,
         nhapLaiMatKhau: confirmPassword,
-        captcha: recaptchaValue,
+        // captcha: recaptchaValue,
         soDienThoai: phone,
         maGioiThieu: maGioiThieu,
       });
@@ -108,7 +108,7 @@ const DangKy = () => {
 
       setSignupStatus("success");
       reset();
-      setRecaptchaValue(null);
+      // setRecaptchaValue(null);
       // Đăng nhập tự động
       await signIn("login", {
         taiKhoan: account,
@@ -119,7 +119,7 @@ const DangKy = () => {
     } catch (err) {
       setSignupStatus("error");
       toast.error(t(err?.response?.data?.message) ?? "Có lỗi khi đăng ký tài khoản");
-      setRecaptchaValue(null);
+      // setRecaptchaValue(null);
     } finally {
       setSignupStatus(null);
     }
