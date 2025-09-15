@@ -106,7 +106,7 @@ class UserAdminController {
             nguoiDung: userId,
             tienTruoc: findUser.money - moneyUpdate,
             tienSau: findUser.money,
-            noiDung: moneyUpdate > 0 ? `Nhận tiền từ SANDS` : `Trừ tiền từ SANDS`,
+            noiDung: moneyUpdate > 0 ? `Nhận tiền từ GALAXY` : `Trừ tiền từ GALAXY`,
             loaiDeposit: moneyUpdate > 0 ? LOAI_DEPOSIT.NHAN_TIEN : LOAI_DEPOSIT.TRU_TIEN,
           },
           options: {
