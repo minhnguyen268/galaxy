@@ -291,7 +291,7 @@ const DangKy = () => {
             />
           </FormControl> */}
 
-          <FormControl
+          {/* <FormControl
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -356,7 +356,7 @@ const DangKy = () => {
               />
             </Box>
             <ErrorMessageLabel>{errors.recaptcha ? "Captcha không hợp lệ" : ""}</ErrorMessageLabel>
-          </FormControl>
+          </FormControl> */}
 
           <Button type="submit" onClick={handleSubmit(onSubmit)} variant="contained">
             {t("Đăng ký")}
