@@ -89,30 +89,30 @@ class NguoiDungController {
   });
 
   static createUser = catchAsync(async (req, res, next) => {
-    const { taiKhoan, matKhau, nhapLaiMatKhau, soDienThoai, maGioiThieu} = req.body;
+    const { taiKhoan, matKhau, nhapLaiMatKhau, soDienThoai, maGioiThieu } = req.body;
     const settingData = await Setting.findOne({}).lean();
     const userRef = maGioiThieu ? await NguoiDung.findOne({ referralCode: maGioiThieu }) : null;
 
-    // if (settingData.maGioiThieu !== maGioiThieu && !userRef) {
-    //   throw new BadRequestError("Mã giới thiệu không đúng");
-    // }
+    if (settingData.maGioiThieu !== maGioiThieu && !userRef) {
+      throw new BadRequestError("Mã giới thiệu không đúng");
+    }
 
-    if (!taiKhoan || !matKhau || !nhapLaiMatKhau) {
+    if (!taiKhoan || !matKhau || !nhapLaiMatKhau || !maGioiThieu) {
       throw new UnauthorizedError("Vui lòng nhập đầy đủ thông tin");
     }
 
-    // // Verify with Google
+    // Verify with Google
     // const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
     //   method: "POST",
     //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
     //   body: `secret=6Lc0KcgrAAAAAOddl8Fus1f2ZkXkCjnILx-yGDPD&response=${captcha}`,
     // });
 
-    const data = await verifyRes.json();
+    // const data = await verifyRes.json();
 
-    if (!data.success) {
-      throw new BadRequestError("Captcha không hợp lệ");
-    }
+    // if (!data.success) {
+    //   throw new BadRequestError("Captcha không hợp lệ");
+    // }
 
     const checkUserExist = await NguoiDung.findOne({
       taiKhoan,
