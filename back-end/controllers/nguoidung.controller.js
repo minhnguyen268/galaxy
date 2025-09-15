@@ -89,7 +89,7 @@ class NguoiDungController {
   });
 
   static createUser = catchAsync(async (req, res, next) => {
-    const { taiKhoan, matKhau, nhapLaiMatKhau, soDienThoai, maGioiThieu, captcha } = req.body;
+    const { taiKhoan, matKhau, nhapLaiMatKhau, soDienThoai, maGioiThieu} = req.body;
     const settingData = await Setting.findOne({}).lean();
     const userRef = maGioiThieu ? await NguoiDung.findOne({ referralCode: maGioiThieu }) : null;
 
@@ -101,12 +101,12 @@ class NguoiDungController {
       throw new UnauthorizedError("Vui lòng nhập đầy đủ thông tin");
     }
 
-    // Verify with Google
-    const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `secret=6Lc0KcgrAAAAAOddl8Fus1f2ZkXkCjnILx-yGDPD&response=${captcha}`,
-    });
+    // // Verify with Google
+    // const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: `secret=6Lc0KcgrAAAAAOddl8Fus1f2ZkXkCjnILx-yGDPD&response=${captcha}`,
+    // });
 
     const data = await verifyRes.json();
 
