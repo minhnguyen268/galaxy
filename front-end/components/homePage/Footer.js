@@ -130,7 +130,7 @@ const Footer = () => {
             return (
               <FooterContactItem
                 className={"footer-item"}
-                target="_blank"
+                target="_self"
                 rel="noopener noreferrer"
                 href={cskhLink}
                 key={item.key}
