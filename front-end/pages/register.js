@@ -19,7 +19,7 @@ import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 const DangKy = () => {
   const { t } = useTranslation("common");
   const { data: session, status } = useSession();
@@ -27,7 +27,7 @@ const DangKy = () => {
   const [signupStatus, setSignupStatus] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
+  // const [recaptchaValue, setRecaptchaValue] = useState(null);
 
   // form validation rules
   const validationSchema = Yup.object().shape({
@@ -50,10 +50,10 @@ const DangKy = () => {
       .matches(/^\S*$/, t("Vui lòng nhập mật khẩu hợp lệ (từ 6 ký tự)"))
       .oneOf([Yup.ref("password"), null], t("Mật khẩu không khớp với nhau"))
       .strict(true),
-    ageConfirmation: Yup.boolean()
-      .oneOf([true], t("Bạn phải xác nhận đủ 18 tuổi để đăng ký"))
-      .required(t("Bạn phải xác nhận đủ 18 tuổi để đăng ký")),
-    recaptcha: Yup.string().required(t("Vui lòng xác thực reCAPTCHA")),
+    // ageConfirmation: Yup.boolean()
+    //   .oneOf([true], t("Bạn phải xác nhận đủ 18 tuổi để đăng ký"))
+    //   .required(t("Bạn phải xác nhận đủ 18 tuổi để đăng ký")),
+    // recaptcha: Yup.string().required(t("Vui lòng xác thực reCAPTCHA")),
     // phone: Yup.string()
     //   .required(t("Vui lòng nhấp số điện thoại hợp lệ"))
     //   .trim(t("Vui lòng nhấp số điện thoại hợp lệ"))
