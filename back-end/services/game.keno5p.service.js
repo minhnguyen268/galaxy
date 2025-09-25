@@ -15,7 +15,7 @@ class GameKeno5PService extends GameKenoService {
       KEY_SOCKET: LOAI_GAME.KENO5P,
     };
     const SETTING_GAME = {
-      TIMER: 300,
+      TIMER: 296,
       IS_PLAY_GAME: true,
       IS_MODIFIED_RESULT: false,
       MODIFIED_RESULT: [0, 0, 0, 0, 0],
